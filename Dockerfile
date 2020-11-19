@@ -18,7 +18,7 @@ FROM ${DOCKERHUB}/openjdk:11-jdk
 
 RUN mkdir /workplace && chmod a+rwx /workplace
 WORKDIR /workplace
-COPY --from=builder /buildplace/target/creatives-0.0.1-SNAPSHOT.jar /workplace/application.jar
+COPY --from=builder /buildplace/target/k8s-0.0.1-SNAPSHOT.jar /workplace/application.jar
 RUN chmod a+rwx /workplace/application.jar
 ENV JAVA_OPTS=
 CMD exec java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /workplace/application.jar
